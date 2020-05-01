@@ -1,22 +1,7 @@
-------------------------------------
-ABOUT
--------------------------------------
-This README file contains information and instructions for the contents of the IST submission for the Portfolio Management Course.
-
-Written by: Matti Karjalainen (matti.o.karjalainen@aalto.fi)
-With: Miika Hakkarainen, Mikko Ilmonen, Matti Karjalainen, Aron Lemstrom, Tommi Takki
-
-
--------------------------------------
-CONTENTS OF SUBMISSION
--------------------------------------
-ISTappFINAL.R 							# This is the application file, written in R with a web based user interface that runs on shiny
-GRACH-Copula.R 							# This is R-script used in the analysis during the development of the tool. Includes a lot more analysis than the actual application file!
-dailyreturns.csv						# This is the default return file, that can be modified and SHOULD be updated by the user to get up-to-date forecasts from the tool
-Hakkarainen_Ilmonen_Karjalainen_Lemström_Takki_SingleSlide.pptx	# The single slide summary of the tool (pptx version)
-Hakkarainen_Ilmonen_Karjalainen_Lemström_Takki_SingleSlide.pdf	# The single slide summary of the tool (pdf version)
-README.txt							# This file
-
+This app simulates daily returns of a portfolio that consists of 4 asset class indices.
+The simulation is based on the GARCH-Copula framework.
+This app was submitted as a course project at the Master's level 'Portfolio Management' course
+at the Aalto University School of Business, fall 2019.
 
 -------------------------------------
 APP USER INSTRUCTIONS
@@ -34,6 +19,22 @@ Typically, the user should only need to adjust or specify parameters that are ac
 However, if the application shows an error messages, this might be due to incorrectly specified parameters in the script. (e.g. number of index return vectors per asset class)
 
 The parameters most likely needing adjustment are at the beginning of the script for convenience.
+
+DEFAULT DATA SET
+-------------------------------------
+On Github, the default dataset is not provided due to licensing reasons
+To replicate the functionality of the app, the data should be called ädailydata.csv',
+and contain trading dates in the first column (header 'Date'), and the returns of the following indices/instruments:7
+
+MSCI WORLD (Equity)
+MSCI Emerging Markets (Equity)
+SP 500 (Equity)
+US10Y (Gov Bond)
+DE10Y (Gov Bond)
+SP Investment Garde (Corp Bond)
+SP InvestmentHigh Yield (Corp Bond)
+MSCI World Real Estate (Real Estate)
+MSCI US Real Estate (Real Estate)
 
 PROVIDING CUSTOM INDEX RETURNS AND UPDATING THE DEFAULT DATA SET
 -------------------------------------
