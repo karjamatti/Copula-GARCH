@@ -28,15 +28,15 @@ On Github, the default dataset is not provided due to licensing reasons
 To replicate the functionality of the app, the data should be called 'dailydata.csv',
 and contain trading dates in the first column (header 'Date'), and the returns of the following indices/instruments:7
 
-MSCI WORLD (Equity)
-MSCI Emerging Markets (Equity)
-SP 500 (Equity)
-US10Y (Gov Bond)
-DE10Y (Gov Bond)
-SP Investment Garde (Corp Bond)
-SP InvestmentHigh Yield (Corp Bond)
-MSCI World Real Estate (Real Estate)
-MSCI US Real Estate (Real Estate)
+	- MSCI WORLD (Equity)
+	- MSCI Emerging Markets (Equity)
+	- SP 500 (Equity)
+	- US10Y (Gov Bond)
+	- DE10Y (Gov Bond)
+	- SP Investment Garde (Corp Bond)
+	- SP InvestmentHigh Yield (Corp Bond)
+	- MSCI World Real Estate (Real Estate)
+	- MSCI US Real Estate (Real Estate)
 
 ## PROVIDING CUSTOM INDEX RETURNS AND UPDATING THE DEFAULT DATA SET
 
@@ -62,12 +62,12 @@ It is very well possible that some index returns do not fit the GARCH-specficati
 It is also possible that the GARCH-fit might not be sufficient for parameter convergence!
 In case of no convergence, you can try to specify a tolerance parameter in the garch fit, for example:
 
-
+```r
 specs <- ugarchspec(variance.model = list(model = "sGARCH",garchOrder = c(1,1)), # Srandard GARCH with order (1,1)
                                 mean.model = list(armaOrder=c(1,1)), # ARMA(1,1)
 				solver.control = list(tol = 1e-12),
                                 distribution.model = "std") # Student t disturbances
-            
+ ```           
 on line 199 of the application script
 
 The correctness of the script is also not guaranteed! If you see something weird and cath a bug, please shoot me an email!
