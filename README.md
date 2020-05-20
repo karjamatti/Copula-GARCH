@@ -2,9 +2,6 @@
 
 This app simulates daily returns of a portfolio that consists of 4 asset class indices.
 The simulation is based on the GARCH-Copula framework.
-This app was submitted as a course project at the Master's level 'Portfolio Management' course
-at the Aalto University School of Business, fall 2019.
-
 
 ## APP USER INSTRUCTIONS
 
@@ -74,11 +71,11 @@ The correctness of the script is also not guaranteed! If you see something weird
 
 ## DISCLAIMERS
 
-This submission is part of a school project, and should NOT be used in financial decision making!!!!
+This is an illustrative project, and should NOT be used in financial decision making!!!!
 The outputs of the tool are purely illustrative and should not be taken as certain.
 The script is written by a non-professional developer, and is likely to contain errors, bad practices and other mishaps.
 The functionality of script is in no way guaranteed.
-This submission is not meant to be distributed in exchange for any compensation.
+This script is not meant to be distributed in exchange for any compensation.
 If you have any questions, please contact the email address found in this document.
 
 ALL RIGHTS RESERVED.
