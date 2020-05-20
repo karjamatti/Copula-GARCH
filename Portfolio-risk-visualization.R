@@ -1,11 +1,7 @@
 "
-Portfolio Management - IST
-
 Correspondance: karjamatti@gmail.com
-
 PLEASE REFER TO THE ATTACHED README-FILE FOR ADDITIONAL INFORMATION
 "
-
 
 #' ---------------------------------------------------------------------------
 #' SETUP AND PARAMETER
