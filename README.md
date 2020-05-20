@@ -26,7 +26,7 @@ The parameters most likely needing adjustment are at the beginning of the script
 
 On Github, the default dataset is not provided due to licensing reasons
 To replicate the functionality of the app, the data should be called 'dailydata.csv',
-and contain trading dates in the first column (header 'Date'), and the returns of the following indices/instruments:7
+and contain trading dates in the first column (header 'Date'), and the returns of the following 7 indices/instruments:
 
 	- MSCI WORLD (Equity)
 	- MSCI Emerging Markets (Equity)
@@ -70,9 +70,7 @@ specs <- ugarchspec(variance.model = list(model = "sGARCH",garchOrder = c(1,1)),
  ```           
 on line 199 of the application script
 
-The correctness of the script is also not guaranteed! If you see something weird and cath a bug, please shoot me an email!
-
-
+The correctness of the script is also not guaranteed! If you see something weird and cath a bug, please shoot me an email at karjamatti@gmail.com!
 
 ## DISCLAIMERS
 
@@ -83,4 +81,5 @@ The functionality of script is in no way guaranteed.
 This submission is not meant to be distributed in exchange for any compensation.
 If you have any questions, please contact the email address found in this document.
 
-ALL RIGHTS RESERVED. Matti Karjalainen, 2019.
+ALL RIGHTS RESERVED.
+Matti Karjalainen, 2019.
