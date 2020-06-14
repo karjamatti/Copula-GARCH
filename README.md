@@ -91,7 +91,7 @@ specs <- ugarchspec(variance.model = list(model = "sGARCH",garchOrder = c(1,1)),
 				solver.control = list(tol = 1e-12),
                                 distribution.model = "std") # Student t disturbances
  ```           
-on line 189 of the application script
+on line 167 of the application script
 
 The correctness of the script is also not guaranteed! If you see something weird and cath a bug, please shoot me an email at karjamatti@gmail.com!
 
