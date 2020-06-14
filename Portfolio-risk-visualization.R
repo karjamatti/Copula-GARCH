@@ -7,6 +7,8 @@ PLEASE REFER TO THE ATTACHED README-FILE FOR ADDITIONAL INFORMATION
 #' SETUP AND PARAMETER
 #' ---------------------------------------------------------------------------
 
+filename <- 'dailyreturns.csv'
+
 bw <- 0.001 # Set Bin width for histograms
 num.sim <- 2000 # Number of Simulations
 num.plot <- 500 # Number of PLotted Paths
@@ -28,48 +30,24 @@ num.re <- 2 # NUmber real estate indices
             if(!is.element(library, .packages(all.available = TRUE))) {install.packages(library)}
             library(library,character.only = TRUE)}
           
+          'package'('mvtnorm')
           'package'('VineCopula')
           'package'('copula', 'http://R-Forge.R-project.org')
-          'package'('scatterplot3d')
-          'package'('ggplot2')
-          'package'('grid')
-          'package'('dplyr')
-          'package'('lubridate')
-          'package'('psych')
-          'package'('rmutil')
           'package'('shiny')
-          'package'('MASS')
           'package'('fitdistrplus')
           'package'('stats')
-          'package'('metRology')
           'package'('rugarch')
-          'package'('TSA')
           'package'('fGarch')
-          'package'('mvtnorm')
-          'package'('tidyr')
           'package'('PerformanceAnalytics')
           'package'('gridExtra')
-          
-          
-          #' ---------------------------------------------------------------------------
-          #' AUTOMATIC DETECTION OF RETURN FILE PATH AND DIRECTORY SETUP 
-          #' ---------------------------------------------------------------------------
-          
-          returnfilename <- 'dailyreturns.csv'
-          abspath <- function(file){file.path(normalizePath(dirname(file))) %>% return()}
-          dir <- abspath(returnfilename)
-          
-          # dir <- Z:/Desktop # IF AUTOMATIC DETECTION DOES NOT WORK, DECLARE DIRECTORY HERE AND UN-COMMENT
-          
-          setwd(dir)
-          stopifnot(all.equal(getwd(), gsub("\\", '/', dir, fixed = TRUE)))
+          'package'('tidyverse')
           
           
 #' ---------------------------------------------------------------------------
 #' DATA IMPORT
 #' ---------------------------------------------------------------------------
 
-          data <- read.csv('dailyreturns.csv', sep =',', header = TRUE, encoding = 'utf-8') # Load default data
+          data <- read.csv(paste0('./', filename), sep =',', header = TRUE, encoding = 'utf-8') # Load default data
           data$Date <- lubridate::ymd(data$Date) # Convert dates to date objects
           
           equity <- colnames(data)[2:(1+num.eq)]
@@ -502,7 +480,7 @@ server <- function(input, output) {
       geom_histogram(colour = 'black', fill = 'white', binwidth = bw) +
       geom_density(aes(y = bw * ..count..), alpha = 0.5, fill = 'yellow') +
       stat_function(fun = function(x) dnorm(x, mean = port.expret, sd = evaluation[length(evaluation)]) * bw * nrow(longlast), geom = 'area', fill = 'red', alpha = 0.4) + 
-      ylab("") + xlab('Cumulative Return') + labs(title = paste('Histogram of Conditional Cumulative Returns for next', forecast.horizon, 'trading days\nGARCH-Copula VaR (black line):', round(var.ret*100, digits = 2),'%\nGaussian VaR (red line):', round(gaus.lower[length(gaus.lower)]*100, digits = 2), '%')) + 
+      ylab("") + xlab('Cumulative Return') + labs(title = paste('Histogram of Conditional Cumulative Returns for next', forecast.horizon, 'trading days\nGARCH-Copula VaR (black line):', round(var.ret*100, digits = 2),'% \nGaussian VaR (red line):', round(gaus.lower[length(gaus.lower)]*100, digits = 2), '%')) + 
       geom_vline(xintercept = var.ret, color = 'black') + geom_vline(xintercept = gaus.lower[length(gaus.lower)], color = 'red') +
       scale_y_continuous(breaks = NULL) + 
       scale_fill_continuous(guide = guide_legend())
@@ -592,7 +570,7 @@ server <- function(input, output) {
         geom_density(aes(y = bw * ..count..), alpha = 0.5, fill = 'yellow') +
         stat_function(fun = function(x) dnorm(x, mean = port.expret, sd = port.sd) * bw * num.uncond, geom = 'area', fill = 'red', alpha = 0.4) +
         geom_vline(xintercept = var.garch , color = 'black') + geom_vline(xintercept = var.gaus, color = 'red') +
-        ylab("") + labs(title = paste('Simulated Unconditional Daily Returns\nGARCH-Copula VaR (black line):', round(var.garch*100, digits = 2),'%\nGaussian VaR (red line):', round(var.gaus*100, digits = 2), '%')) + 
+        ylab("") + labs(title = paste('Simulated Unconditional Daily Returns\nGARCH-Copula VaR (black line):', round(var.garch*100, digits = 2),'% \nGaussian VaR (red line):', round(var.gaus*100, digits = 2), '%')) + 
         scale_y_continuous(breaks = NULL) + 
         scale_fill_continuous(guide = guide_legend())
       
