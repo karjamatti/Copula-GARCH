@@ -3,6 +3,29 @@
 This app simulates daily returns of a portfolio that consists of 4 asset class indices.
 The simulation is based on the GARCH-Copula framework.
 
+## REQUIREMENTS
+
+The App is currently written so that it runs on MacOS.
+If you wish to run it on other systems, please check that the path to the data file works.
+
+A lot of the packages used in the script require compiling. This can get dicey, but some tips and tricks I can give are:
+
+ - Install homebrew (availble from https://brew.sh/)
+ - Install the required compilers (an easy way is to run the command: $ brew install gcc)
+ - Check the "Makevars" -file in ~/.R/
+
+The "Makevars" -file should be something along the lines of:
+
+```
+VER=-9 
+CC=gcc$(VER)
+CXX=g++$(VER)
+CFLAGS=-mtune=native -g -O2 -Wall -pedantic -Wconversion
+CXXFLAGS=-mtune=native -g -O2 -Wall -pedantic -Wconversion
+FLIBS=-L/usr/local/Cellar/gcc/9.2.0/lib/gcc/9
+```
+where the number 9 etc. corresponds to your gcc version. (run the command "$ which gcc" to find out.)
+
 ## APP USER INSTRUCTIONS
 
 An easy way to run the app, is to open the script in RStudio, and run all of the code.
@@ -21,8 +44,10 @@ The parameters most likely needing adjustment are at the beginning of the script
 
 ## DEFAULT DATA SET
 
-On Github, the default dataset is not provided due to licensing reasons
-To replicate the functionality of the app, the data should be called 'dailydata.csv',
+On Github, the **original** default dataset is not provided due to licensing reasons.
+However, a **pseudo-dataset** based on the original with *randomization* is provided.
+
+To ensure the functionality of the app, the data should be called 'dailydata.csv',
 and contain trading dates in the first column (header 'Date'), and the returns of the following 7 indices/instruments:
 
 	- MSCI WORLD (Equity)
@@ -37,8 +62,9 @@ and contain trading dates in the first column (header 'Date'), and the returns o
 
 ## PROVIDING CUSTOM INDEX RETURNS AND UPDATING THE DEFAULT DATA SET
 
-In order to yield accurate condtional forecasts, the return data should be updated daily.
-When doing this, please remember to keep in mind:
+In order to yield accurate condtional forecasts, the return data should be updated daily. (Ironically enough, this is not the case for me, since I do not have access to the original data source any longer...)
+
+When/if updating data this, please remember to keep in mind:
 
 	- Dates should be in YYYY-MM-DD format
 	- Commas separate vector elements
