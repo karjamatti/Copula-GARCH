@@ -32,10 +32,8 @@ An easy way to run the app, is to open the script in RStudio, and run all of the
 This should eventually open a pop up window with the user interface.
 Do not attempt to alter the code while the pop-up is open!
 
-The location of the default return data file (dailyreturns.csv) should be automatically detected.
-If this is not the case, please locate the file, and set the working directory manually in RStudio.
-
-The script should automatically load, or install and load and load any required packages.
+The script should automatically load, or install and load and load any required packages. however, do keep in mind that the packages might require compiling, which usually asks for a simple user-input (y/n). 
+These inputs might mess up sourcing/running the code, so maybe try installing the required packages in the console first.
 
 Typically, the user should only need to adjust or specify parameters that are accessible through the user interface of the app.
 However, if the application shows an error messages, this might be due to incorrectly specified parameters in the script. (e.g. number of index return vectors per asset class)
@@ -64,7 +62,7 @@ and contain trading dates in the first column (header 'Date'), and the returns o
 
 In order to yield accurate condtional forecasts, the return data should be updated daily. (Ironically enough, this is not the case for me, since I do not have access to the original data source any longer...)
 
-When/if updating data this, please remember to keep in mind:
+When/if updating data, please remember to keep in mind:
 
 	- Dates should be in YYYY-MM-DD format
 	- Commas separate vector elements
@@ -73,7 +71,7 @@ When/if updating data this, please remember to keep in mind:
 
 ## SPECIFYING PARAMETERS IN THE SCRIPT
 
-The most likely cause for adjusting parameters in the script is in case the user wants to provide his/her own return data.
+The most likely cause for adjusting parameters in the script is in case the user wants to provide their own return data.
 In this case, the number of return indices in the adjusted data file should be specified, so that the user interface recognizes which asset classes the indices belong to.
 
 Also, the number of simulated variates can be changed by adjusting the parameters at the beginning of the script.
@@ -97,12 +95,5 @@ The correctness of the script is also not guaranteed! If you see something weird
 
 ## DISCLAIMERS
 
-This is an illustrative project, and should NOT be used in financial decision making!!!!
-The outputs of the tool are purely illustrative and should not be taken as certain.
-The script is written by a non-professional developer, and is likely to contain errors, bad practices and other mishaps.
-The functionality of script is in no way guaranteed.
-This script is not meant to be distributed in exchange for any compensation.
+The script is likely to contain errors, bad practices and other mishaps.
 If you have any questions, please contact the email address found in this document.
-
-ALL RIGHTS RESERVED.
-Matti Karjalainen, 2019.
