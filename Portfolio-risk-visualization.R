@@ -164,7 +164,7 @@ num.re <- 2 # NUmber real estate indices
             #' GARCH SPEC
             #' ---------------------------------------------------------------------------
             
-            specs <- ugarchspec(variance.model = list(model = "sGARCH",garchOrder = c(1,1)), # Srandard GARCH with order (1,1)
+            specs <- ugarchspec(variance.model = list(model = "sGARCH",garchOrder = c(1,1)), # Standard GARCH with order (1,1)
                                 mean.model = list(armaOrder=c(1,1)), # ARMA(1,1)
                                 distribution.model = "std") # Student t disturbances
             
